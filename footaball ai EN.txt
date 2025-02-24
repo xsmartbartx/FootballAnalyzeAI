@@ -1,0 +1,49 @@
+The project involves using advanced video analysis techniques to track and analyze soccer players. This allows for the creation of visualizations and statistics related to the game.
+The project will use object and keypoint detection models, which will allow for accurate tracking of player and ball movements. This is crucial for the analysis of the match.
+Using embedding analysis to divide players into teams and calculate advanced statistics such as ball trajectory is an innovative approach. This allows for a better game strategy.
+Preparing a dataset for training models, including ball detection, is a key step. This requires considering different scenarios so that the model is effective in difficult conditions.
+
+Training a soccer player detection model requires setting the input resolution appropriately to improve ball detection accuracy. Increasing the resolution from 640 to 1280 pixels requires more computational resources. 
+
+While training the model, it is important to adjust the batch size to avoid memory issues. Using a larger batch size can speed up the training process on more powerful GPU cards. 
+
+Once training is complete, the model is evaluated using the MAP metric, which measures the average detection precision. The results show that the model performs well in detecting goalkeepers and referees, but is worse in detecting the ball. 
+
+After training, the model is uploaded to RoboFlow Universe, which simplifies the management of model weights. Users can easily load the model in the future without worrying about its storage.
+
+The project illustrates how to use the supervision library to detect objects in video frames. The process includes frame generation, object detection, and visualization.
+The first step is to import the video and set the path to the source file. Then we generate video frames to process them.
+The object detection model analyzes the frames and the results are visualized using rectangular frames. Detection information is also displayed with a confidence level.
+
+We extend the detection process from one frame to the entire video by defining new constants and synchronizing video information. This allows processing each frame in a loop.
+
+The project presents the process of analyzing object detection and their classification in the context of sports. It uses different visualization techniques to improve the quality of the displayed information.
+The division of detections into groups makes it easier to manage different classes of objects, including balls and other objects. This segregation allows for more precise analysis.
+The visualizations are improved by replacing rectangles with ellipses and adding special markers for the ball. This results in a more attractive and understandable interface.
+Object tracking is a key step to distinguish between players and goalkeepers. Using tracking identifiers improves the clarity of the analysis.
+
+Keypoint detection is crucial for tracking the position of players and the ball in real time on the pitch. This allows us to accurately analyze match events, regardless of the camera movement.
+The function of combining player and goalkeeper detection allows to create a single detection object, which facilitates further processing and visualization. This improves the accuracy of match analysis.
+Homography allows for image distortion correction, which is necessary for correct tracking of the action on the pitch. This allows for a top-down view, which facilitates analysis.
+
+It is important to define a sufficient number of landmarks on the pitch to ensure their visibility under different camera conditions. This improves the reliability of detection.
+
+discusses the process of keypoint filtering based on the trust value in the context of homography. A threshold is established to remove low-trust points, which allows for stable results.
+Defining a threshold for the trust of keypoints is crucial for obtaining reliable results. This allows for eliminating uncertain points from the analysis.
+The stability of keypoints is important to avoid jitter and jumps. Stable points allow for more precise mapping on different planes.
+The perspective transformation process uses source and target points. Classification of points on both planes is necessary for correct transformation.
+
+discusses the process of ball trajectory analysis in the context of AI in soccer. It focuses on ball detection and stabilization of results using perspective transformation.
+
+Ball trajectory analysis involves detecting the ball and key points on the pitch. Using detection models allows for accurate tracking of the ball's movement.
+
+The video highlights the importance of cleaning data from duplicate detections. Removing invalid results improves the quality of trajectory analysis.
+
+The challenges associated with different camera angles affect the accuracy of the model. Optimization of data sets and models for tracking objects in difficult conditions are required.
+
+Advanced strategies such as quantization can significantly speed up the inference process in sports analysis. There are many challenges to solve, including player tracking and perspective transformation.
+
+The development of player metrics is crucial for more accurate analysis of performance in sports. The introduction of more advanced data can bring significant benefits to player evaluation.
+
+Models that predict future events on the pitch can revolutionize the way matches are analyzed. Such predictions can improve team strategy and coaching decisions.
+Video encourages questions and sharing ideas about how technology can be applied to other areas. Social collaboration can lead to innovative solutions.

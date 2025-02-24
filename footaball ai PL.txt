@@ -1,0 +1,39 @@
+Projekt polega na wykorzystaniu zaawansowanych technik analizy wideo do śledzenia i analizy graczy w piłkę nożną. Umożliwia to stworzenie wizualizacji i statystyk związanych z grą.
+W projekcie zastosowane zostaną modele detekcji obiektów oraz punktów kluczowych, co pozwoli na dokładne śledzenie ruchów graczy i piłki. To kluczowe dla analizy meczu.
+Wykorzystanie analizy embeddingów do podziału graczy na drużyny oraz obliczenia zaawansowanych statystyk, takich jak trajektoria piłki, jest innowacyjnym podejściem. Umożliwia to lepszą strategię gry.
+Przygotowanie zestawu danych do trenowania modeli, w tym detekcji piłki, jest kluczowym krokiem. Wymaga to uwzględnienia różnych scenariuszy, aby model był skuteczny w trudnych warunkach.
+
+Trenowanie modelu detekcji piłkarzy wymaga odpowiedniego ustawienia rozdzielczości wejściowej, aby poprawić dokładność detekcji piłki. Zwiększenie rozdzielczości z 640 do 1280 pikseli wymaga więcej zasobów obliczeniowych.
+W trakcie trenowania modelu, ważne jest dostosowanie rozmiaru partii, aby uniknąć problemów z pamięcią. Użycie większego rozmiaru partii może przyspieszyć proces trenowania na mocniejszych kartach GPU.
+Po zakończeniu trenowania, model jest oceniany za pomocą metryki MAP, która mierzy średnią precyzję detekcji. Wyniki pokazują, że model dobrze radzi sobie z detekcją bramkarzy i sędziów, ale gorzej z piłką.
+Model po treningu jest przesyłany do RoboFlow Universe, co upraszcza zarządzanie wagami modelu. Użytkownicy mogą łatwo załadować model w przyszłości bez obaw o jego przechowywanie.
+
+Projekt ilustruje, jak używać biblioteki supervision do detekcji obiektów w klatkach filmu. Proces obejmuje generację klatek, detekcję obiektów i ich wizualizację.
+Pierwszym krokiem jest zaimportowanie wideo i ustawienie ścieżki do pliku źródłowego. Następnie generujemy klatki wideo, aby je przetworzyć.
+Model detekcji obiektów analizuje klatki, a wyniki są wizualizowane z użyciem prostokątnych ramek. Informacje o detekcjach są również wyświetlane z poziomem pewności.
+Rozszerzamy proces detekcji z jednej klatki na całe wideo, definiując nowe stałe i synchronizując informacje o wideo. Umożliwia to przetwarzanie każdej klatki w pętli.
+
+Projekt przedstawia proces analizy detekcji obiektów i ich klasyfikacji w kontekście sportowym. Używa różnych technik wizualizacji, aby poprawić jakość wyświetlanych informacji.
+Podział detekcji na grupy ułatwia zarządzanie różnymi klasami obiektów, w tym piłkami i innymi elementami. Ta segregacja pozwala na bardziej precyzyjne analizy.
+Wizualizacje są poprawiane przez zastąpienie prostokątów elipsami oraz dodanie specjalnych znaczników dla piłki. Dzięki temu uzyskuje się bardziej atrakcyjny i zrozumiały interfejs.
+Śledzenie obiektów jest kluczowym etapem, który umożliwia rozróżnienie między zawodnikami a bramkarzami. Użycie identyfikatorów śledzenia poprawia przejrzystość analizy.
+
+Wykrywanie punktów kluczowych jest kluczowe dla śledzenia pozycji graczy i piłki w czasie rzeczywistym na boisku. Dzięki temu możemy dokładnie analizować wydarzenia meczowe, niezależnie od ruchu kamery.
+Funkcja łączenia detekcji graczy i bramkarzy umożliwia stworzenie jednego obiektu detekcji, co ułatwia dalsze przetwarzanie i wizualizację. To poprawia dokładność analizy meczów.
+Homografia pozwala na korekcję zniekształceń obrazu, co jest niezbędne do prawidłowego śledzenia akcji na boisku. Umożliwia to uzyskanie widoku z góry, co ułatwia analizę.
+Ważne jest, aby zdefiniować wystarczającą liczbę punktów charakterystycznych na boisku, aby zapewnić ich widoczność w różnych warunkach kamery. To poprawia wiarygodność detekcji.
+
+omawia proces filtracji punktów kluczowych na podstawie wartości zaufania w kontekście homografii. Ustalono próg, aby usunąć punkty o niskim zaufaniu, co pozwala na stabilne wyniki.
+Zdefiniowanie progu dla zaufania punktów kluczowych jest kluczowe dla uzyskania wiarygodnych wyników. Umożliwia to eliminację niepewnych punktów z analizy.
+Stabilność punktów kluczowych jest istotna, aby uniknąć drgań i skoków. Stabilne punkty pozwalają na bardziej precyzyjne odwzorowanie na różnych płaszczyznach.
+W procesie transformacji perspektywy wykorzystuje się punkty źródłowe i docelowe. Klasyfikacja punktów na obu płaszczyznach jest niezbędna do prawidłowego przekształcenia.
+
+omawia proces analizy trajektorii piłki w kontekście sztucznej inteligencji w piłce nożnej. Skupia się na detekcji piłki i stabilizacji wyników za pomocą transformacji perspektywy.
+Analiza trajektorii piłki obejmuje detekcję piłki oraz kluczowych punktów na boisku. Wykorzystanie modeli detekcji pozwala na dokładne śledzenie ruchu piłki.
+Wideo podkreśla znaczenie czyszczenia danych z duplikatów detekcji. Usunięcie nieprawidłowych wyników poprawia jakość analizy trajektorii.
+Wyzwania związane z różnymi kątami kamery wpływają na dokładność modelu. Wymagana jest optymalizacja zbiorów danych oraz modele do śledzenia obiektów w trudnych warunkach.
+
+Zaawansowane strategie, takie jak kwantyzacja, mogą znacznie przyspieszyć proces wnioskowania w analizie sportowej. Istnieje wiele wyzwań do rozwiązania, w tym śledzenie graczy i transformacja perspektywy.
+Rozwój metryk graczy jest kluczowy dla dokładniejszej analizy wydajności w sportach. Wprowadzenie bardziej zaawansowanych danych może przynieść znaczące korzyści przy ocenie zawodników.
+Modele przewidujące przyszłe zdarzenia na boisku mogą zrewolucjonizować sposób analizy meczów. Takie prognozy mogą poprawić strategię drużyn i decyzje trenerskie.
+Wideo zachęca do zadawania pytań i dzielenia się pomysłami na temat zastosowań technologii w innych dziedzinach. Współpraca społecznościowa może prowadzić do innowacyjnych rozwiązań.
