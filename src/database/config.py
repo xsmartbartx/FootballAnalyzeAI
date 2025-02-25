@@ -3,7 +3,7 @@ from typing import Optional
 
 @dataclass
 class DatabaseConfig:
-    """Database configuration settings"""
+    """Database configuration"""
     host: str
     port: int
     database: str
@@ -12,4 +12,5 @@ class DatabaseConfig:
     
     @property
     def connection_string(self) -> str:
+        """Get SQLAlchemy connection string"""
         return f"postgresql://{self.username}:{self.password}@{self.host}:{self.port}/{self.database}" 

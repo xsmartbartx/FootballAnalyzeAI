@@ -4,6 +4,7 @@ from sqlalchemy import Column, DateTime, Enum, Float, ForeignKey, Integer, Strin
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.ext.declarative import declarative_base
 from geoalchemy2 import Geography
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -23,9 +24,14 @@ class Team(Base):
     
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String, nullable=False)
+    country = Column(String)
+    stats = Column(JSON)  # Store team statistics as JSON
     logo_url = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    players = relationship("Player", back_populates="team")
 
 class Match(Base):
     __tablename__ = 'matches'
@@ -35,10 +41,16 @@ class Match(Base):
     away_team_id = Column(UUID(as_uuid=True), ForeignKey('teams.id'), nullable=False)
     date = Column(DateTime, nullable=False)
     venue = Column(String)
+    competition = Column(String)
     status = Column(Enum('scheduled', 'live', 'completed', name='match_status'), nullable=False)
     video_url = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    home_team = relationship("Team", foreign_keys=[home_team_id])
+    away_team = relationship("Team", foreign_keys=[away_team_id])
+    reports = relationship("AnalyticsReport", back_populates="match")
 
 class Player(Base):
     __tablename__ = 'players'
@@ -46,10 +58,14 @@ class Player(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     team_id = Column(UUID(as_uuid=True), ForeignKey('teams.id'), nullable=False)
     jersey_number = Column(Integer)
-    full_name = Column(String, nullable=False)
+    name = Column(String, nullable=False)
     position = Column(String)
+    stats = Column(JSON)  # Store player statistics as JSON
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    team = relationship("Team", back_populates="players")
 
 class TrackingSession(Base):
     __tablename__ = 'tracking_sessions'
@@ -109,4 +125,7 @@ class AnalyticsReport(Base):
     report_type = Column(String, nullable=False)
     data = Column(JSONB)
     created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow) 
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    match = relationship("Match", back_populates="reports") 
